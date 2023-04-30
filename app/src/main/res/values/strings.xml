@@ -27,5 +27,8 @@
 
     <!-- Toast Messages-->
     <string name="location_required_explanation_widget">Location required. Enable location and add the widget again!</string>
+    <string name="_25">25</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

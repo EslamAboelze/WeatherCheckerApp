@@ -11,6 +11,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.view.updatePadding
@@ -25,6 +26,9 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.weather_fragment.*
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class WeatherFragment : Fragment() {
@@ -44,13 +48,18 @@ class WeatherFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = weatherViewModel
-            forecastList.adapter = ForecastAdapter()
+           // forecastList.adapter = ForecastAdapter()
         }
 
         requestLastLocationOrStartLocationUpdates()
         setWindowInsets()
-
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
     }
 
     /**
@@ -59,7 +68,7 @@ class WeatherFragment : Fragment() {
      * prevent overlapping.
      */
     private fun setWindowInsets() {
-        val weatherLayout: ConstraintLayout = binding.weatherLayout
+        val weatherLayout: LinearLayout = binding.weatherLayout
         weatherLayout.setOnApplyWindowInsetsListener { view, insets ->
             view.updatePadding(
                 top = insets.systemWindowInsetTop,
@@ -100,6 +109,7 @@ class WeatherFragment : Fragment() {
                         getLocationRequest(),
                         getLocationCallback(),
                         Looper.getMainLooper()
+
                     )
             }
         }
