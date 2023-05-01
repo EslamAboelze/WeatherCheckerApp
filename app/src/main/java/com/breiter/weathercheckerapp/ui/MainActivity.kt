@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.weather_fragment.*
 
 class MainActivity : AppCompatActivity() {
-     var moreDetalsFrag = MoreDetalsFrag()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
